@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import UserBase from "../model/user.js";
-import generateToken from "../util/generateToken.js";
+import generateTokenAndSetCookie from "../util/generateToken.js";
 import attendance from "../model/attendance.js";
 
 // signup
@@ -24,17 +24,16 @@ export const signup = async (req, res) => {
           Role: role,
         });
 
-        await user.save();
+        if (user) {
+          generateTokenAndSetCookie(user._id, res);
+          await user.save();
 
-        // if (user) {
-        //   generateToken(user._id, res);
-        // }
-
-        res.status(201).json({
-          id: user._id,
-          username: user.Username,
-          email: user.Email,
-        });
+          res.status(201).json({
+            id: user._id,
+            username: user.Username,
+            email: user.Email,
+          });
+        }
       } else {
         res.status(401).json({ error: "Username already exists" });
       }
@@ -57,9 +56,9 @@ export const login = async (req, res) => {
       return res.status(403).send("Invalid credentials");
     }
 
-    generateToken(user._id, res);
+    generateTokenAndSetCookie(user._id, res);
 
-    res.status(201).json({
+    res.status(200).json({
       id: user.id,
       Fullname: user.Fullname,
       Username: user.Username,
@@ -99,7 +98,7 @@ export const logout = async (req, res) => {
     await attendedUser.save();
 
     res.cookie("jwt", "", { maxAge: 0 });
-    res.status(201).json({
+    res.status(200).json({
       status: "successful",
       attendanceDuration: `${Math.floor(duration / 1000)} seconds`,
     });
