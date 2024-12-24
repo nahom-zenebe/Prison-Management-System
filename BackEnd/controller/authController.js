@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import UserBase from "../model/user.js";
 import generateToken from "../util/generateToken.js";
+import attendance from "../model/attendance.js";
 
 // signup
 export const signup = async (req, res) => {
@@ -64,6 +65,15 @@ export const login = async (req, res) => {
       Username: user.Username,
       Email: user.Email,
     });
+
+    // attendance tracking
+    const loginTime = new Date();
+    const attendanceTracker = new attendance({
+      userId: user._id,
+      loginTime,
+    });
+
+    await attendanceTracker.save();
   } catch (err) {
     console.log("error while logging in", err);
     res.status(501).json({ error: "Internal Server Error" });
@@ -71,10 +81,28 @@ export const login = async (req, res) => {
 };
 
 // logout
-export const logout = (req, res) => {
+export const logout = async (req, res) => {
   try {
+    // calculating time of attendance
+    const { userId } = req.body;
+
+    const attendedUser = await attendance.findOne({ userId, logoutTime: null });
+    if (!attendedUser)
+      return res.status(404).send("Attendance record not found");
+
+    const logoutTime = new Date();
+    const duration = logoutTime - attendedUser.loginTime;
+
+    attendedUser.logoutTime = logoutTime;
+    attendedUser.duration = duration;
+
+    await attendedUser.save();
+
     res.cookie("jwt", "", { maxAge: 0 });
-    res.status(201).json({ status: "successful" });
+    res.status(201).json({
+      status: "successful",
+      attendanceDuration: `${Math.floor(duration / 1000)} seconds`,
+    });
   } catch (error) {
     console.log("Error while logging out", error);
     res.status(500).json({ error: "Error while logging out" });
