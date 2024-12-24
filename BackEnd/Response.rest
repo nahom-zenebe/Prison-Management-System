@@ -1,0 +1,55 @@
+// signup
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "fullname": "Mary Jane",
+  "username": "mary1234",
+  "email": "marymary@gmail.com",
+  "password": "MM1234",
+  "confirmpassword": "MM1234",
+  "role": "admin"
+}
+
+###
+// login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "mary1234",
+  "password": "MM1234"
+
+}
+
+###
+// Add Inmate
+POST http://localhost:3000/inmateM/addInmate
+Content-Type: application/json
+
+{
+  "inmateId": "4",
+      "name": "johnDoe",
+      "age": "26",
+      "crime": "Drug Trafficer",
+      "gender": "male",
+      "cell": "1",
+      "medicalRecord": "null",
+      "sentenceDuration": "5",
+      "status": "serving"
+
+}
+
+###
+// Search for a specific Inmate
+GET http://localhost:3000/inmateM/searchInmate
+Content-Type: application/json
+
+{
+  "inmateId": "4"
+}
+
+###
+// Get total inmates of the prison
+GET http://localhost:3000/inmateM/getInmates
+
