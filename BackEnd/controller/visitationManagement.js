@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import InmateDB from "../model/Inmate.js";
 
 export const requestVisit = async (req, res) => {
@@ -16,7 +15,7 @@ export const requestVisit = async (req, res) => {
     console.log("Error during visitor request visit", err);
   }
 };
-=======
+
 import Visitation from '../model/visitationRecord'
 
 export const addVisitation=async(req,res)=>{
@@ -36,8 +35,6 @@ export const addVisitation=async(req,res)=>{
     }
 
 }
-
-
 
 export const getVisitRecord = async (req, res) => {
       
@@ -106,4 +103,4 @@ export const getVisitRecord = async (req, res) => {
       res.status(500).json({ message: "Error retrieving visitation count", error: error.message });
     }
   };
->>>>>>> 837877d0046c41abe9e072f0bf8364ea501c880a
+
