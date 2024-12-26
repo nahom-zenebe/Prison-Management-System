@@ -14,7 +14,7 @@ export const addInmate = async (req, res) => {
       sentenceDuration,
       status,
     } = req.body;
-    
+
     const duplicateId = await InmateDB.findOne({ inmateId });
     if (duplicateId) {
       return res.status(401).send("Inmate Id already exits");
@@ -64,5 +64,33 @@ export const getInmates = async (req, res) => {
     return res.status(401).json({ status: "No inmates found" });
   } catch (err) {
     console.log("Error while getting All Inmates", err);
+  }
+};
+
+// update Inmate Data
+export const updateInmate = async (req, res) => {
+  try {
+    const { inmateId, ...updateData } = req.body;
+
+    if (!inmateId) {
+      return res.status(400).json({ status: "Inmate ID is required." });
+    }
+
+    const updatedInmate = await InmateDB.findOneAndUpdate(
+      { inmateId },
+      updateData,
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedInmate) {
+      return res.status(404).json({ status: "Inmate not found." });
+    }
+
+    res
+      .status(200)
+      .json({ status: "Inmate updated successfully.", data: updatedInmate });
+  } catch (error) {
+    console.error("Error while updating inmate data:", error);
+    res.status(500).json({ status: "Error updating inmate data." });
   }
 };
