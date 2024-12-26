@@ -1,14 +1,5 @@
 import mongoose from "mongoose";
 
-mongoose
-  .connect("mongodb://localhost:27017/Prison-Management-System")
-  .then((result) => {
-    console.log("Connected To Inmate DataBase");
-  })
-  .catch((err) => {
-    console.log("Error While Connected to DB", err);
-  });
-
 const schema = mongoose.Schema({
   inmateId: {
     type: Number,
@@ -40,7 +31,7 @@ const schema = mongoose.Schema({
     required: true,
   },
 
-    medicalRecord: {
+  medicalRecord: {
     type: String,
     required: true,
   },

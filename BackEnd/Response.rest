@@ -62,3 +62,22 @@ Content-Type: application/json
 // Get total inmates of the prison
 GET http://localhost:3000/inmateM/getInmates
 
+###
+// update inmante information
+PUT http://localhost:3000/inmateM/updateInmate
+Content-Type: application/json
+
+{
+  "inmateId": "1",
+  "name": "Jhonny maconny",
+  "age": "40",
+  "crime": "Burglary",
+  "gender": "Male",
+  "cell": "202",
+  "medicalRecord": "Asthma",
+  "sentenceDuration": 36,
+  "status": "Transferred"
+}
+
+
+

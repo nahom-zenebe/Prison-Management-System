@@ -3,6 +3,10 @@ import authRouter from "./route/authRoute.js";
 import inmateRouter from "./route/InmateRoute.js";
 import VisitationRouter from './route/visitaionRoute.js'
 import MedicalRouter from "./route/medicalRoute.js";
+import connectToMongoDB from "./db/connectToMongoDb.js";
+import dotenv from "dotenv";
+dotenv.config();
+
 const app = express();
 app.use(express.json());
 
@@ -19,5 +23,6 @@ app.listen(PORT, (err) => {
     console.log("Error whie loading server", err);
     return;
   }
+  connectToMongoDB();
   console.log(`server is live at port ${PORT}...`);
 });

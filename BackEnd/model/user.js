@@ -1,14 +1,5 @@
 import mongoose from "mongoose";
 
-mongoose
-  .connect("mongodb://localhost:27017/Prison-Management-System")
-  .then((result) => {
-    console.log("Connected To UserBase");
-  })
-  .catch((err) => {
-    console.log("Error While Connected to DB", err);
-  });
-
 const schema = mongoose.Schema({
   Fullname: {
     type: String,
@@ -18,7 +9,7 @@ const schema = mongoose.Schema({
   Username: {
     type: String,
     required: true,
-    unique:true
+    unique: true,
   },
 
   Email: {
