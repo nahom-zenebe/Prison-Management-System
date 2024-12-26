@@ -14,6 +14,7 @@ export const addInmate = async (req, res) => {
       sentenceDuration,
       status,
     } = req.body;
+    
     const duplicateId = await InmateDB.findOne({ inmateId });
     if (duplicateId) {
       return res.status(401).send("Inmate Id already exits");

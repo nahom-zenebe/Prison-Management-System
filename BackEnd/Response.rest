@@ -3,11 +3,11 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-  "fullname": "Mary Jane",
-  "username": "mary1234",
-  "email": "marymary@gmail.com",
-  "password": "MM1234",
-  "confirmpassword": "MM1234",
+  "fullname": "Abel Tesfa",
+  "username": "abel1234",
+  "email": "abel@gmail.com",
+  "password": "aa1234",
+  "confirmpassword": "aa1234",
   "role": "admin"
 }
 
@@ -17,9 +17,18 @@ POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-  "username": "mary1234",
-  "password": "MM1234"
+  "username": "abel1234",
+  "password": "aa1234"
 
+}
+
+###
+// logout
+POST http://localhost:3000/auth/logout
+Content-Type: application/json
+
+{
+  "userId": "676a5c254b634be2ec9331ee"
 }
 
 ###
