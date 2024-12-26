@@ -1,12 +1,14 @@
 import express from "express";
 import authRouter from "./route/authRoute.js";
 import inmateRouter from "./route/InmateRoute.js";
+import VisitationRouter from "./model/visitationRecord.js";
 
 const app = express();
 app.use(express.json());
 
 app.use("/", authRouter);
 app.use("/", inmateRouter);
+app.use("/Visitation",VisitationRouter)
 
 // server listener
 const PORT = 3000;
