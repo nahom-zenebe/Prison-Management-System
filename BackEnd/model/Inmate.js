@@ -40,7 +40,7 @@ const schema = mongoose.Schema({
     required: true,
   },
 
-  medicalRecord: {
+    medicalRecord: {
     type: String,
     required: true,
   },
