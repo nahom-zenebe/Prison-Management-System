@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+// nahoms commit
 mongoose
   .connect("mongodb://localhost:27017/Prison-Management-System")
   .then((result) => {
