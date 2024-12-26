@@ -9,7 +9,7 @@ mongoose
     console.log("Error While Connected to DB", err);
   });
 
-const schema = mongoose.Schema({
+const Visitationschema = mongoose.Schema({
   visitorId: {
     type: Number,
     required: true,
@@ -29,8 +29,13 @@ const schema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  status:{
+    type:String,
+    value:["pending","Accepted","Rejected"],
+    defult:"pending"
+  }
 });
 
-const model = mongoose.model("Inmate", schema);
+const  Visitation = mongoose.model("Inmate", Visitationschema );
 
-export default model;
+export default Visitation;
