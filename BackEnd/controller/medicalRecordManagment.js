@@ -1,0 +1,1 @@
+import medicalRecordManagment from "../model/medical"
