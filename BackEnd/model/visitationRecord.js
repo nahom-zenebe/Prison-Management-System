@@ -10,6 +10,11 @@ mongoose
   });
 
 const schema = mongoose.Schema({
+  visitorId: {
+    type: Number,
+    required: true,
+  },
+
   inmateId: {
     type: Number,
     required: true,
@@ -20,38 +25,8 @@ const schema = mongoose.Schema({
     required: true,
   },
 
-  age: {
+  visitDate: {
     type: Number,
-    required: true,
-  },
-
-  crime: {
-    type: String,
-    required: true,
-  },
-
-  gender: {
-    type: String,
-    required: true,
-  },
-
-  cell: {
-    type: Number,
-    required: true,
-  },
-
-  medicalRecord: {
-    type: String,
-    required: true,
-  },
-
-  sentenceDuration: {
-    type: Number,
-    required: true,
-  },
-
-  status: {
-    type: String,
     required: true,
   },
 });
