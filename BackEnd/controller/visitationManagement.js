@@ -16,7 +16,7 @@ export const requestVisit = async (req, res) => {
   }
 };
 
-import Visitation from '../model/visitationRecord'
+import Visitation from '../model/visitationRecord.js'
 
 export const addVisitation=async(req,res)=>{
     try {
