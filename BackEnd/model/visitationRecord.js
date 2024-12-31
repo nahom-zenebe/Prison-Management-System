@@ -27,6 +27,6 @@ const Visitationschema = mongoose.Schema({
   },
 });
 
-const Visitation = mongoose.model("Inmate", Visitationschema);
+const Visitation = mongoose.model("Visitation", Visitationschema);
 
 export default Visitation;

@@ -1,5 +1,5 @@
 import express from "express";
-import {AddMedicalRecord,AllMedicalRecord,getMedicalRecordById} from "../controller/medicalRecordManagment";
+import {AddMedicalRecord,AllMedicalRecord,getMedicalRecordById} from "../controller/medicalRecordManagment.js";
 
 const router = express.Router();
 

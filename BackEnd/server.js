@@ -4,6 +4,7 @@ import inmateRouter from "./route/InmateRoute.js";
 import VisitationRouter from './route/visitaionRoute.js'
 import MedicalRouter from "./route/medicalRoute.js";
 import connectToMongoDB from "./db/connectToMongoDb.js";
+import StaffRoute from './route/StaffRoute.js'
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use("/", authRouter);
 app.use("/", inmateRouter);
 app.use("/Visitation",VisitationRouter)
 app.use('/Medical',MedicalRouter)
+app.use('/StaffRoute',StaffRoute)
 
 // server listener
 const PORT = 3000;
