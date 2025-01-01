@@ -1,6 +1,6 @@
 import InmateDB from "../model/Inmate.js";
 
-// Add Inmate
+
 export const addInmate = async (req, res) => {
   try {
     const {
@@ -37,7 +37,7 @@ export const addInmate = async (req, res) => {
   }
 };
 
-// Search for a specific Inmate
+
 export const searchInmate = async (req, res) => {
   try {
     const inmateId = req.body.inmateId;
@@ -53,7 +53,7 @@ export const searchInmate = async (req, res) => {
   }
 };
 
-// Get all Inmates
+
 export const getInmates = async (req, res) => {
   try {
     const inmates = await InmateDB.find({});
@@ -67,7 +67,7 @@ export const getInmates = async (req, res) => {
   }
 };
 
-// update Inmate Data
+
 export const updateInmate = async (req, res) => {
   try {
     const { inmateId, ...updateData } = req.body;

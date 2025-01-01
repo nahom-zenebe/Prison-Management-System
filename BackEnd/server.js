@@ -1,13 +1,12 @@
 import express from "express";
 import authRouter from "./route/authRoute.js";
 import inmateRouter from "./route/InmateRoute.js";
-<<<<<<< HEAD
+import VisitationRouter from './route/visitaionRoute.js'
+import MedicalRouter from "./route/medicalRoute.js";
 import connectToMongoDB from "./db/connectToMongoDb.js";
+import StaffRoute from './route/StaffRoute.js'
 import dotenv from "dotenv";
 dotenv.config();
-=======
-import VisitationRouter from "./model/visitationRecord.js";
->>>>>>> 837877d0046c41abe9e072f0bf8364ea501c880a
 
 const app = express();
 app.use(express.json());
@@ -15,6 +14,8 @@ app.use(express.json());
 app.use("/", authRouter);
 app.use("/", inmateRouter);
 app.use("/Visitation",VisitationRouter)
+app.use('/Medical',MedicalRouter)
+app.use('/StaffRoute',StaffRoute)
 
 // server listener
 const PORT = 3000;

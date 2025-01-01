@@ -1,4 +1,5 @@
 import InmateDB from "../model/Inmate.js";
+import Visitation from "../model/visitationRecord";
 
 export const requestVisit = async (req, res) => {
   try {
@@ -15,8 +16,6 @@ export const requestVisit = async (req, res) => {
     console.log("Error during visitor request visit", err);
   }
 };
-
-import Visitation from "../model/visitationRecord";
 
 export const addVisitation = async (req, res) => {
   try {
@@ -68,19 +67,15 @@ export const allvisition = async (req, res) => {
     if (!allvisition) {
       return res.status(404).json({ message: "there is not visitation found" });
     }
-    res
-      .status(200)
-      .json({
-        message: " all Visitation fetched successfully",
-        data: allvisition,
-      });
+    res.status(200).json({
+      message: " all Visitation fetched successfully",
+      data: allvisition,
+    });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "Error in fetching  all visitation",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "Error in fetching  all visitation",
+      error: error.message,
+    });
   }
 };
 
@@ -104,19 +99,15 @@ export const respondToInvitation = async (req, res) => {
       return res.status(404).json({ message: "No visitation found to update" });
     }
 
-    res
-      .status(200)
-      .json({
-        message: "Status updated successfully",
-        data: updatedVisitation,
-      });
+    res.status(200).json({
+      message: "Status updated successfully",
+      data: updatedVisitation,
+    });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "Error in responding to invitation",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "Error in responding to invitation",
+      error: error.message,
+    });
   }
 };
 
