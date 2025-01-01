@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import InmateDB from "../model/Inmate.js";
 
 export const requestVisit = async (req, res) => {
@@ -16,94 +15,124 @@ export const requestVisit = async (req, res) => {
     console.log("Error during visitor request visit", err);
   }
 };
-=======
-import Visitation from '../model/visitationRecord'
 
-export const addVisitation=async(req,res)=>{
-    try {
-        const { visitorId,inmateId,name,visitDate}=req.body
+import Visitation from "../model/visitationRecord";
 
-        if (!visitorId||!inmateId||!name||!visitDate){
-            return res.status(404).json({message:"The data field should be provided"})
-        }
-        const newvisitation=new Visitation({
-            visitorId,inmateId,name,visitDate 
-        })
-        await newvisitation.save();
-        res.status(201).json({message:"The visitation add successfully"},Visitation )
-    } catch (error) {
-        return res.status(404).json({message:"Error in adding visitation"})
+export const addVisitation = async (req, res) => {
+  try {
+    const { visitorId, inmateId, name, visitDate } = req.body;
+
+    if (!visitorId || !inmateId || !name || !visitDate) {
+      return res
+        .status(404)
+        .json({ message: "The data field should be provided" });
     }
-
-}
-
-
+    const newvisitation = new Visitation({
+      visitorId,
+      inmateId,
+      name,
+      visitDate,
+    });
+    await newvisitation.save();
+    res
+      .status(201)
+      .json({ message: "The visitation add successfully" }, Visitation);
+  } catch (error) {
+    return res.status(404).json({ message: "Error in adding visitation" });
+  }
+};
 
 export const getVisitRecord = async (req, res) => {
-      
-    try {
-        const{visitorid}=req.body
+  try {
+    const { visitorid } = req.body;
 
-      const visitations = await Visitation.findById({visitorid});
-  
-      if (!visitations) {
-        return res.status(404).json({ message: "Visitation not found" });
-      }
-  
-      res.status(200).json({ message: "Visitation fetched successfully", data: visitations });
-    } catch (error) {
-      
-      res.status(500).json({ message: "Error in fetching visitation", error: error.message });
-    }
-  };
+    const visitations = await Visitation.findById({ visitorid });
 
-  export const allvisition=async(req,res)=>{
-    try {
-        const allvisition=await Visitation.find({})
-        if(!allvisition){
-            return res.status(404).json({ message: "there is not visitation found" });
-        }
-        res.status(200).json({ message: " all Visitation fetched successfully", data: allvisition});
-        
-    } catch (error) {
-        res.status(500).json({ message: "Error in fetching  all visitation", error: error.message });
-        
+    if (!visitations) {
+      return res.status(404).json({ message: "Visitation not found" });
     }
+
+    res
+      .status(200)
+      .json({ message: "Visitation fetched successfully", data: visitations });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error in fetching visitation", error: error.message });
   }
-  
-  
-  export const respondToInvitation = async (req, res) => {
-    try {
-      const { status } = req.body;
-  
-      if (!status) {
-        return res.status(400).json({ message: "Please provide a status to update" });
-      }
-  
-    
-      const updatedVisitation = await Visitation.findOneAndUpdate(
-        { visitorId }, 
-        { status },
-        { new: true } 
-      );
-  
-      if (!updatedVisitation) {
-        return res.status(404).json({ message: "No visitation found to update" });
-      }
-  
-      res.status(200).json({ message: "Status updated successfully", data: updatedVisitation });
-    } catch (error) {
-      res.status(500).json({ message: "Error in responding to invitation", error: error.message });
-    }
-  };
+};
 
-  export const getVisitationCount = async (req, res) => {
-    try {
-      const count = await Visitation.countDocuments();
-  
-      res.status(200).json({ message: "Total visitation count retrieved", count });
-    } catch (error) {
-      res.status(500).json({ message: "Error retrieving visitation count", error: error.message });
+export const allvisition = async (req, res) => {
+  try {
+    const allvisition = await Visitation.find({});
+    if (!allvisition) {
+      return res.status(404).json({ message: "there is not visitation found" });
     }
-  };
->>>>>>> 837877d0046c41abe9e072f0bf8364ea501c880a
+    res
+      .status(200)
+      .json({
+        message: " all Visitation fetched successfully",
+        data: allvisition,
+      });
+  } catch (error) {
+    res
+      .status(500)
+      .json({
+        message: "Error in fetching  all visitation",
+        error: error.message,
+      });
+  }
+};
+
+export const respondToInvitation = async (req, res) => {
+  try {
+    const { status } = req.body;
+
+    if (!status) {
+      return res
+        .status(400)
+        .json({ message: "Please provide a status to update" });
+    }
+
+    const updatedVisitation = await Visitation.findOneAndUpdate(
+      { visitorId },
+      { status },
+      { new: true }
+    );
+
+    if (!updatedVisitation) {
+      return res.status(404).json({ message: "No visitation found to update" });
+    }
+
+    res
+      .status(200)
+      .json({
+        message: "Status updated successfully",
+        data: updatedVisitation,
+      });
+  } catch (error) {
+    res
+      .status(500)
+      .json({
+        message: "Error in responding to invitation",
+        error: error.message,
+      });
+  }
+};
+
+export const getVisitationCount = async (req, res) => {
+  try {
+    const count = await Visitation.countDocuments();
+
+    res
+      .status(200)
+      .json({ message: "Total visitation count retrieved", count });
+  } catch (error) {
+    res
+      .status(500)
+      .json({
+        message: "Error retrieving visitation count",
+        error: error.message,
+      });
+  }
+};
