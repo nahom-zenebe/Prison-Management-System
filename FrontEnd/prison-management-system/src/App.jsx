@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import Homepage from "./PMS/Homepage.jsx";
 import Login from "./PMS/login.jsx";
 import Signup from "./PMS/signup.jsx";
-import WelcomePage from "./PMS/welcomePage.jsx";
 import Navbar from "./PMS/Navbar.jsx";
 import Visitationpage from "./PMS/Visitationpage.jsx";
 
