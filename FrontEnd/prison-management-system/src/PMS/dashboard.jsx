@@ -1,4 +1,4 @@
-import Login from "./PMS/login.jsx";
+import Login from "./PMS/login.js";
 
 function App() {
   return <Login />;
