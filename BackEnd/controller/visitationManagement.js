@@ -1,5 +1,5 @@
 import InmateDB from "../model/Inmate.js";
-import Visitation from "../model/visitationRecord";
+import Visitation from "../model/visitationRecord.js";
 
 export const requestVisit = async (req, res) => {
   try {
@@ -33,10 +33,9 @@ export const addVisitation = async (req, res) => {
       visitDate,
     });
     await newvisitation.save();
-    res
-      .status(201)
-      .json({ message: "The visitation add successfully" }, Visitation);
+    res.status(201).json({ message: "The visitation added successfully" });
   } catch (error) {
+    console.log("error in adding visitation: ", error);
     return res.status(404).json({ message: "Error in adding visitation" });
   }
 };
@@ -119,11 +118,9 @@ export const getVisitationCount = async (req, res) => {
       .status(200)
       .json({ message: "Total visitation count retrieved", count });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "Error retrieving visitation count",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "Error retrieving visitation count",
+      error: error.message,
+    });
   }
 };

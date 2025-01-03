@@ -1,6 +1,6 @@
 import { toast } from "react-hot-toast";
 import { useState } from "react";
-import { useAuthContext } from "../context/authContext";
+import { useAuthContext } from "../context/authContext.jsx";
 
 const userLogin = () => {
   const [loading, setLoading] = useState(false);
@@ -13,7 +13,7 @@ const userLogin = () => {
     if (!success) return;
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:3000/login", {
+      const res = await fetch("http://localhost:3000/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

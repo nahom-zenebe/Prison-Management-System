@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "fullname": "Abel Tesfa",
-  "username": "abel1234",
+  "username": "bel1234",
   "email": "abel@gmail.com",
   "password": "aa1234",
   "confirmpassword": "aa1234",
@@ -37,7 +37,7 @@ POST http://localhost:3000/inmateM/addInmate
 Content-Type: application/json
 
 {
-  "inmateId": "4",
+  "inmateId": "5",
       "name": "johnDoe",
       "age": "26",
       "crime": "Drug Trafficer",
@@ -79,5 +79,19 @@ Content-Type: application/json
   "status": "Transferred"
 }
 
+###
+// request visit
+POST http://localhost:3000/Visitation/addVisition
+Content-Type: application/json
 
+{
+  "visitorId": "12", 
+  "inmateId": "98", 
+  "name": "john",
+  "visitDate": "17"
+}
 
+###
+
+// this one does not work
+GET http://localhost:3000/Visitation/allVisitation

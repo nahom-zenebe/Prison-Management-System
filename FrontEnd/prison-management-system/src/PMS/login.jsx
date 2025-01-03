@@ -1,19 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import userLogin from "../hooks/userLogin.js";
+import userLogin from "../hooks/userLogin.js";
 const login = () => {
-  // const login = userLogin();
+  const login = userLogin();
 
   const [input, setInput] = useState({
     username: "",
     password: "",
   });
 
-  // Authentication using the backend will go here
-
   const handleLogin = async (e) => {
-    // e.preventDefault();
-    // await login(input);
+    e.preventDefault();
+    await login(input);
   };
 
   return (
@@ -23,11 +21,7 @@ const login = () => {
           <h1 className="pb-5 font-bold text-center text-2xl text-gray-800">
             Login
           </h1>
-          <form
-            action="/login"
-            method="post"
-            id="login" /* onSubmit={handleLogin} */
-          >
+          <form action="/login" method="post" id="login" onSubmit={handleLogin}>
             <div class="eachInput mb-3">
               <label for="username" className="text-gray-700 font-bold">
                 Username
