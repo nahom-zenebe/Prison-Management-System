@@ -1,0 +1,83 @@
+// signup
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "fullname": "Abel Tesfa",
+  "username": "abel1234",
+  "email": "abel@gmail.com",
+  "password": "aa1234",
+  "confirmpassword": "aa1234",
+  "role": "admin"
+}
+
+###
+// login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "abel1234",
+  "password": "aa1234"
+
+}
+
+###
+// logout
+POST http://localhost:3000/auth/logout
+Content-Type: application/json
+
+{
+  "userId": "676a5c254b634be2ec9331ee"
+}
+
+###
+// Add Inmate
+POST http://localhost:3000/inmateM/addInmate
+Content-Type: application/json
+
+{
+  "inmateId": "4",
+      "name": "johnDoe",
+      "age": "26",
+      "crime": "Drug Trafficer",
+      "gender": "male",
+      "cell": "1",
+      "medicalRecord": "null",
+      "sentenceDuration": "5",
+      "status": "serving"
+
+}
+
+###
+// Search for a specific Inmate
+GET http://localhost:3000/inmateM/searchInmate
+Content-Type: application/json
+
+{
+  "inmateId": "4"
+}
+
+###
+// Get total inmates of the prison
+GET http://localhost:3000/inmateM/getInmates
+
+###
+// update inmante information
+PUT http://localhost:3000/inmateM/updateInmate
+Content-Type: application/json
+
+{
+  "inmateId": "1",
+  "name": "Jhonny maconny",
+  "age": "40",
+  "crime": "Burglary",
+  "gender": "Male",
+  "cell": "202",
+  "medicalRecord": "Asthma",
+  "sentenceDuration": 36,
+  "status": "Transferred"
+}
+
+
+
