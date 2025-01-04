@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/NavBar.jsx"; // Import Navbar
+import Navbar from "../PMS/Navbar"; // Import Navbar
 import prisonLogo from "../assets/pp.jpg"; // Import the image
 
 const WelcomePage = () => {
@@ -8,8 +8,8 @@ const WelcomePage = () => {
 
   return (
     <div className="flex flex-col min-h-screen text-black bg-white bg-gradient-to-br">
-      {/* Navbar */}
-      <Navbar />
+   
+    
 
       {/* Main Content */}
       <main className="flex flex-1 flex-row items-center justify-around max-w-6xl mx-auto">

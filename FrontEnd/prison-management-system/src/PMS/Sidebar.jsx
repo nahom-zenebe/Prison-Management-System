@@ -1,33 +1,39 @@
-
-
 import React from 'react';
-
-
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
+  return (
+    <div>
 
 
-    return (
-        <div>
-          <div className='bg-white w-72 h-full'>
-            <ul className='pt-36 gap-4 '>
-                <li className='mt-10 text-black h-10 pl-10 hover:bg-gray-100 w-56 ml-10 ' >Home page</li>
-                <li  className='mt-10 text-black h-10 pl-10 hover:bg-gray-100 w-56 ml-10 '>Inmate Managemnt</li>
-                <li  className='mt-10 text-black  h-10 pl-10 hover:bg-gray-100 w-56 ml-10 ' >Staff Managemnt</li>
-                <li   className='mt-10 text-black  h-10 pl-10 hover:bg-gray-100 w-56 ml-10 '>Visitaton Managmenet</li>
-                <li   className='mt-10  text-black  h-10 pl-10 hover:bg-gray-100 w-56 ml-10 '>Security Managment</li>
-                <li   className='mt-10 text-black  h-10 pl-10 hover:bg-gray-100 w-56 ml-10 '>Medical Managment</li>
-                <li   className='mt-10 text-black  h-10 pl-10 hover:bg-gray-100 w-56 ml-10 '>Login</li>
-            </ul>
+      <div className="bg-gray-800 flex flex-col  w-72 h-full text-white shadow-lg">
 
+        <ul className="pt-40 ">
+          <li className="px-8 py-3 mt-20   hover:bg-gray-700 cursor-pointer transition-all duration-200">
+           <Link to='/Profilepage'>Profile page</Link> 
+          </li>
+          <li className="px-8 py-3 mt-10 hover:bg-gray-700 cursor-pointer transition-all duration-200">
+           <Link to="/InmateManagementPage">Inmate Management</Link> 
+          </li>
+          <li className="px-8 py-3  mt-10 hover:bg-gray-700 cursor-pointer transition-all duration-200">
+       <Link to="/StaffManagementpage"> Staff Management</Link>  
+          </li>
+          <li className="px-8 py-3  mt-10 hover:bg-gray-700 cursor-pointer transition-all duration-200">
+            <Link to="/VisitationManagementpage">  Visitation Management</Link> 
+          </li>
+          <li className="px-8 py-3  mt-10 hover:bg-gray-700 cursor-pointer transition-all duration-200">
+         <Link to="/MedicalManagementpage ">Medical Management</Link>  
+          </li>
+          <li className="px-8 py-3  mt-10 hover:bg-gray-700 cursor-pointer transition-all duration-200">
+          <Link to="/SecurityManagementpage">Security Management </Link> 
+          </li>
+          <li className="px-8 py-3  mt-10 hover:bg-gray-700 cursor-pointer transition-all duration-200">
+            Logout
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+};
 
-            </div>
-
-
-            <div>
-            </div>
-        </div>
-      );
-}
-
-export default  Sidebar ;
+export default Sidebar;

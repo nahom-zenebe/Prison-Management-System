@@ -29,7 +29,7 @@ const Navbar = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/signup">Sign Up</Link></li>
-            <li><Link to="/Visitationpage">Visitationpage</Link></li>
+            <li><Link to="/VisitationManagementpage">Visitationpage</Link></li>
          
           </ul>
         </div>
@@ -40,7 +40,7 @@ const Navbar = () => {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/login">Login</Link></li>
           <li><Link to="/signup">Sign Up</Link></li>
-          <li><Link to="/Visitationpage">Visitationpage</Link></li>
+          <li><Link to="/VisitationManagementpage">Visitationpage</Link></li>
         </ul>
       </div>
       <div className="navbar-end">
