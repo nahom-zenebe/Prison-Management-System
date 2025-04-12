@@ -3,7 +3,7 @@ import authRouter from "./route/authRoute.js";
 import inmateRouter from "./route/InmateRoute.js";
 import VisitationRouter from "./route/visitaionRoute.js";
 import MedicalRouter from "./route/medicalRoute.js";
-import connectToMongoDB from "./db/connectToMongoDb.js";
+import connectToMongoDB from "./db/connectToMongoDB.js";
 import StaffRoute from "./route/StaffRoute.js";
 import dotenv from "dotenv";
 import cors from "cors";
